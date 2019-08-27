@@ -19,7 +19,7 @@ module.exports = {
 		quotes: [1, "double", { allowTemplateLiterals: true }],
 		semi: [2, "always"],
 		"no-var": [2],
-		"no-console": [0],
+		"no-console": 0,
 		"no-unused-vars": [1],
 		"no-throw-literal": 0,
 		eqeqeq: [2, "smart"]

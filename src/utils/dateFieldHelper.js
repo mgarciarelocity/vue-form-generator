@@ -12,14 +12,18 @@ export default {
 
 	formatValueToModel(value) {
 		if (value != null) {
-			let m = fecha.parse(value, this.getDateFormat());
-			if (this.schema.format) {
-				value = fecha.format(m, this.schema.format);
+			// if you would prefer to do your own parsing of the dates using your own parser IE if you use moment
+			if (typeof this.schema.ignoreFormat !== 'undefined' && this.schema.ignoreFormat) {
+				return value;
 			} else {
-				value = m.valueOf();
+				let m = fecha.parse(value, this.getDateFormat());
+				if (this.schema.format) {
+					value = fecha.format(m, this.schema.format);
+				} else {
+					value = m.valueOf();
+				}
 			}
 		}
-
 		return value;
 	}
 };
